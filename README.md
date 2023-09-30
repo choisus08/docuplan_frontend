@@ -6,7 +6,7 @@ Doc UPlan is a full CRUD app developed with Vue and Django that compiles all doc
 
 ## Links
 - [**Github**](LINK)
-- [**Deployment**](LINK)
+- [**Deployment**](https://github.com/choisus08/docuplan_frontend)
 - [**Trello**](https://trello.com/b/v5jUhSlv/doc-uplan)
 </br>
 
