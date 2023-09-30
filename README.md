@@ -1,4 +1,4 @@
-# Doc UPlan Application
+# Doc UPlan -Frontend
 **Project By:** Susie Gordon
 
 ## Description
@@ -23,20 +23,20 @@ Doc UPlan is a full CRUD app developed with Vue and Django that compiles all doc
 
 ## Approach
 My initial approach was to make a call to the backend by successfully implementing an 'appointment' model with full CRUD capabilities. In order to fully render the CRUD functionalities, the backend url was imported to make the proper requests to load relevant data and initiate corresponding functions...
-</br>
 
 ## Installation
 - `Fork` and `clone` this respository
 - `cd` into the directory on your local machine
 - Open this repository in your code editor and run the code `npm run dev` to open the React app in your browser
-</br>
 
 ## Mockup of UI <br>
-Desktop View
-<img src= ""> 
+Desktop View </br>
+<img src= "./public/mockup1.png" alt="Dekstop UI"> 
+<img src="./public/mockup2.png" alt="Dekstop UI">
+<img src="./public/mockup3.png" alt="Dekstop UI">
 </br>
 Mobile View <br>
-<img src="">
+<img src="./public/mockup4.png" alt="Mobile UI">
 </br>
 
 ## Issues 
