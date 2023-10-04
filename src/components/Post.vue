@@ -1,14 +1,10 @@
 <template>
     <div v-for="appt in appts" class="post">
-        <!-- <li  v-for="appt in apptList">
-            test
-        </li> -->
-        <h1>Appointments</h1>
         <h2>{{appt.appointment_title}}</h2>
         <h3>{{appt.date}}</h3>
         <h3>{{appt.time}}</h3>
         <h3>{{appt.doctor_name}}</h3>
-        <!-- </div> -->
+        
     </div>
 </template>
 
