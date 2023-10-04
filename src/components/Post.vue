@@ -3,6 +3,7 @@
         <div v-if="loading" class="loading">Loading...</div>
         <div v-if="error" class="error">{{error}}</div>
         <div v-if="post" class="content">
+            <h1>Appointments</h1>
             <h2>{{post.appointment_title}}</h2>
             <h3>{{post.date}}</h3>
             <h3>{{post.time}}</h3>
@@ -12,41 +13,49 @@
 
 <script>
     export default {
-    // Fetching after navigation
-        data() {
-            return {
-                loading: false,
-                post: null,
-                error: null
-            }
-        },
+        name: "Post",
+        setup() {
 
-        created() {
-            // watch the params of the route to fetch the data again
-            this.$watch(
-                () => this.$route.params,
-                () => {
-                    this.fetchData()
-                },
-                // fetch the data when the view is created and the data is already being observed
-                { immediate: true }
-            )
-        },
+            const post = ref([])
+            console.log(post)
+       
 
-        methods: {
-            fetchData() {
-                this.error = this.post = null
-                this.loading = true
-                // replace 'getPost' with your data fetching util / API wrapper
-                getPost(this.$route.params.id, (err, post) => {
-                    this.loading = false
-                    if (err) {
-                        this.error = err.toString()
-                    } else {
-                        this.post = post
-                    }
-                })
-            }
+    // // Fetching after navigation
+    //     data() {
+    //         return {
+    //             loading: false,
+    //             post: null,
+    //             error: null
+    //         }
+    //     },
+
+    //     created() {
+    //         // watch the params of the route to fetch the data again
+    //         this.$watch(
+    //             () => this.$route.params,
+    //             () => {
+    //                 this.fetchData()
+    //             },
+    //             // fetch the data when the view is created and the data is already being observed
+    //             { immediate: true }
+    //         )
+    //     },
+
+    //     methods: {
+    //         fetchData() {
+    //             this.error = this.post = null
+    //             this.loading = true
+    //             // replace 'getPost' with your data fetching util / API wrapper
+    //             getPost(this.$route.params.id, (err, post) => {
+    //                 this.loading = false
+    //                 if (err) {
+    //                     this.error = err.toString()
+    //                 } else {
+    //                     this.post = post
+    //                 }
+    //             })
+    //         }
+    //     }
         }
     }
 </script>
