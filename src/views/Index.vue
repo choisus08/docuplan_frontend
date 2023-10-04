@@ -11,9 +11,7 @@
     import {VueElement, ref} from 'vue'
     import Post from '../components/Post.vue'
     import NewForm from '../components/NewForm.vue'
-
-    const newAppt = ref("")
-    const newApptHighPriority = ref(false)
+   
 
     export default {
 
@@ -26,19 +24,9 @@
             return {
                 appointments: [],
                 newAppointment: '',
-                newAppt,
-                newApptHighPriority
-                
+
             }
-        },
-        methods: {
-            // Add new appt
-            addAppt: function() {
-                this.appointments.push(this.newAppointment)
-                this.newAppointment = ''
-                console.log(addAppt())
-            }
-        }         
+        }
     }
 
 </script>
