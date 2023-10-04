@@ -1,63 +1,47 @@
 <template>
-    <div class="post">
-        <div v-if="loading" class="loading">Loading...</div>
-        <div v-if="error" class="error">{{error}}</div>
-        <div v-if="post" class="content">
-            <h1>Appointments</h1>
-            <h2>{{post.appointment_title}}</h2>
-            <h3>{{post.date}}</h3>
-            <h3>{{post.time}}</h3>
-        </div>
+    <div v-for="appt in appts" class="post">
+        <!-- <li  v-for="appt in apptList">
+            test
+        </li> -->
+        <h1>Appointments</h1>
+        <h2>{{appt.appointment_title}}</h2>
+        <h3>{{appt.date}}</h3>
+        <h3>{{appt.time}}</h3>
+        <h3>{{appt.doctor_name}}</h3>
+        <!-- </div> -->
     </div>
 </template>
 
 <script>
+    import { ref, onMounted } from 'vue'
+    import url from '../url'
+
+
     export default {
         name: "Post",
+        props: ['post'],
+
         setup() {
 
-            const post = ref([])
-            console.log(post)
-       
+            const appts = ref([]);
 
-    // // Fetching after navigation
-    //     data() {
-    //         return {
-    //             loading: false,
-    //             post: null,
-    //             error: null
-    //         }
-    //     },
+            onMounted(() => { 
+                // console.log('test onMounted')
+                fetch(url)
+                .then((response) => response.json())
+                .then(data => {
+                    console.log(data)
+                    appts.value = data
+                    console.log(appts.value)
+                })
+            })
 
-    //     created() {
-    //         // watch the params of the route to fetch the data again
-    //         this.$watch(
-    //             () => this.$route.params,
-    //             () => {
-    //                 this.fetchData()
-    //             },
-    //             // fetch the data when the view is created and the data is already being observed
-    //             { immediate: true }
-    //         )
-    //     },
+            return { 
+                appts
+            }
+    
 
-    //     methods: {
-    //         fetchData() {
-    //             this.error = this.post = null
-    //             this.loading = true
-    //             // replace 'getPost' with your data fetching util / API wrapper
-    //             getPost(this.$route.params.id, (err, post) => {
-    //                 this.loading = false
-    //                 if (err) {
-    //                     this.error = err.toString()
-    //                 } else {
-    //                     this.post = post
-    //                 }
-    //             })
-    //         }
-    //     }
-        }
-    }
+    }}
 </script>
 
 <style scoped>
