@@ -1,21 +1,6 @@
 <template>
     <h1>Appointments</h1>
-    <form class="add-appt-form">
-        <div class="input" >
-            <input v-model="newAppt" type="text" placeholder="Appointment Title" />
-            <input v-model="newAppt" type="text" placeholder="Doctor Name" />
-            <input v-model="newAppt" type="text" placeholder="Specialist" />
-            <input v-model="newAppt" type="text" placeholder="Address" />
-            <input v-model="newAppt" type="date" placeholder="Date" />
-            <input v-model="newAppt" type="time" placeholder="Time" />
-            <input v-model="newAppt" type="text" placeholder="Notes" /> 
-        </div> 
-        <label>
-            <input type="checkbox" v-model="newApptHighPriority"/>
-            High Priority
-        </label>
-        <button v-on:click="addAppt" class="addBtn">+</button>
-    </form>
+    <NewForm />
     <div>
         <Post />
     </div>
@@ -23,8 +8,9 @@
 
 <script>
 
-    import {ref} from 'vue'
+    import {VueElement, ref} from 'vue'
     import Post from '../components/Post.vue'
+    import NewForm from '../components/NewForm.vue'
 
     const newAppt = ref("")
     const newApptHighPriority = ref(false)
@@ -33,7 +19,8 @@
 
         name: "Index",
         components: {
-            Post
+            Post,
+            NewForm
         },
         data() {
             return {
@@ -45,15 +32,13 @@
             }
         },
         methods: {
+            // Add new appt
             addAppt: function() {
                 this.appointments.push(this.newAppointment)
                 this.newAppointment = ''
                 console.log(addAppt())
             }
-            
-        }
-
+        }         
     }
 
 </script>
-
