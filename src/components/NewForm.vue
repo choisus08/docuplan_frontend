@@ -1,5 +1,5 @@
 <template>
-    <form class="form">
+    <form class="form" @submit.prevent="handleSubmit">
         <div class="input" >
             <label>Appointment Title</label>
             <input v-model="appointment_title" type="text" placeholder="Physical" required />
@@ -19,8 +19,7 @@
             <label class="priority">High Priority</label>
         </div> 
                
-            
-            <button v-on="addAppt" class="addBtn">+</button>
+            <button @click="handleSubmit" type='submit' class="addBtn">+</button>
     </form>
 </template>
 
@@ -32,6 +31,7 @@
     const newAppt = ''
 
     export default {
+        name: "NewForm",
         data() {
             return {
             appointment_title: '',
@@ -41,31 +41,56 @@
             date: '',
             time: '',
             notes: '',
-            appointments: [],
+            appointments: {},
             newAppt: '',
             newApptHighPriority
         
             }
         },
-        methods: {
-            // Add new appt
-            addAppt() {
-                this.appts.push(this.newAppt)
-                this.newAppt = ''
+        // created() {
+        //     this.fetchData() 
+        // },
 
+        watch: {
+            appointments: 'fetchData'
+        },
+
+        methods: {
+            handleSubmit: async function(event) {
+                // console.log(this)
+                // console.log(event)
+                let newAppt = {
+                    appointment_title: this.appointment_title,
+                    doctor_name: this.doctor_name,
+                    doctor_specialist: this.doctor_specialist,
+                    address: this.address,
+                    date: this.date,
+                    time: this.time,
+                    notes: this.notes,
+                }
+                // console.log(newAppt)
+                const apptUrl = `${url}`
+                const response = await fetch(apptUrl, {
+                        method: "POST",
+                        headers: {
+                            "Content-Type": "application/json"
+                        },
+                        body: JSON.stringify(newAppt)
+                    
+                })
+            console.log(response)
+            },
+            
+            addAppt: function() {
+                this.appointments.push(this.newAppt)
+               
             }
-        }
-        
-        // methods: {
-        //     // Add new appt
-        //     addAppt: function() {
-        //         this.appointments.push(this.newAppointment)
-        //         this.newAppointment = ''
-        //         console.log(addAppt())
-        //     }
-        // }         
-        
+
+         }
     }
+    
+        
+    
 </script>
 
 <style scoped>

@@ -22,6 +22,7 @@
             const appts = ref([]);
 
             onMounted(() => { 
+                // GET appts
                 // console.log('test onMounted')
                 fetch(url)
                 .then((response) => response.json())
@@ -35,9 +36,8 @@
             return { 
                 appts
             }
-    
-
-    }}
+        }
+    }
 </script>
 
 <style scoped>

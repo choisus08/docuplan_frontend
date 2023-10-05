@@ -7,6 +7,10 @@ import Show from '../views/Show.vue'
 // Routes 
 const routes = [
     { path: '/', name: 'Index', component: Index },
+    // { path: '/add', name: '', component: Add,}
+    // ( path: 'post/:id', name: 'NewForm', component: NewForm),
+    // ( path: 'update/:id', name: 'Update', component: NewForm),
+    // ( path: 'delete/:id', name: 'Delete', component: NewForm),
     { path: '/login', name: 'Login', component: Login }
 ];
 
