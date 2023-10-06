@@ -28,7 +28,6 @@
     import url from '../url'
 
     const newApptHighPriority = ref(false)
-    const newAppt = ''
 
     export default {
         name: "NewForm",
@@ -41,7 +40,7 @@
             date: '',
             time: '',
             notes: '',
-            appointments: [],
+            appointments: ref([]),
             newAppt: '',
             newApptHighPriority: false
         
@@ -51,9 +50,9 @@
         //     this.fetchData() 
         // },
 
-        watch: {
-            appointments: 'fetchData'
-        },
+        // watch: {
+        //     appointments: 'fetchData'
+        // },
 
         methods: {
             handleSubmit: async function(event) {
@@ -76,9 +75,14 @@
                             "Content-Type": "application/json"
                         },
                         body: JSON.stringify(newAppt)
-                    
                 })
-            console.log(response)
+                // error handling
+                if (response.ok) {
+                    this.addAppt();
+                }else {
+                    console.error('Error:', response.status, response.statusText)
+                }
+            // console.log(response)
             },
             
             addAppt: function() {

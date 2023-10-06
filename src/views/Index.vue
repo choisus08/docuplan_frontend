@@ -8,10 +8,9 @@
 
 <script>
 
-    import {VueElement, ref} from 'vue'
+    import {ref} from 'vue'
     import Post from '../components/Post.vue'
     import NewForm from '../components/NewForm.vue'
-   
 
     export default {
 
@@ -22,7 +21,7 @@
         },
         data() {
             return {
-                appointments: [],
+                appointments: ref([]),
                 newAppointment: '',
 
             }
