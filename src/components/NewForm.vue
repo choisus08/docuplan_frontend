@@ -19,7 +19,7 @@
             <label class="priority">High Priority</label>
         </div> 
                
-            <button @click="handleSubmit" type='submit' class="addBtn">+</button>
+            <button class="addBtn">+</button>
     </form>
 </template>
 
@@ -41,9 +41,9 @@
             date: '',
             time: '',
             notes: '',
-            appointments: {},
+            appointments: [],
             newAppt: '',
-            newApptHighPriority
+            newApptHighPriority: false
         
             }
         },

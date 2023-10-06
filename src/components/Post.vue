@@ -1,10 +1,9 @@
 <template>
-    <div v-for="appt in appts" class="post">
+    <div v-for="appt in appts" class="card" :key="appt.id">
         <h2>{{appt.appointment_title}}</h2>
         <h3>{{appt.date}}</h3>
         <h3>{{appt.time}}</h3>
         <h3>{{appt.doctor_name}}</h3>
-        
     </div>
 </template>
 
@@ -29,7 +28,10 @@
                 .then(data => {
                     console.log(data)
                     appts.value = data
-                    console.log(appts.value)
+                    // console.log(appts.value)
+                })
+                .catch(error => {
+                    alert('There is an error')
                 })
             })
 
@@ -40,6 +42,7 @@
     }
 </script>
 
-<style scoped>
+<style>
+
 
 </style>
