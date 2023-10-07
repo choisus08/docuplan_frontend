@@ -8,9 +8,10 @@
 
 <script>
 
-    import {ref} from 'vue'
+    // import {ref} from 'vue'
     import Post from '../components/Post.vue'
     import NewForm from '../components/NewForm.vue'
+    import Show from '../views/Show.vue'
     import url from '../url'
 
     export default {
@@ -18,7 +19,8 @@
         name: "Index",
         components: {
             Post,
-            NewForm
+            NewForm,
+            Show 
         },
         data() {
             return {

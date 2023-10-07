@@ -6,11 +6,22 @@ import Show from '../views/Show.vue'
 
 // Routes 
 const routes = [
-    { path: '/', name: 'Index', component: Index },
-    // { path: 'post/:id', name: '', component: '',}  --> SHOW PAGE
+    { path: '/', 
+    name: 'Index', 
+    component: Index 
+    },
+    
+    { path: '/show/:id',
+      name: 'Show',
+      component: Show
+    },
+
     // ( path: 'update:id', name: 'Update', component: ''),
     // ( path: 'delete/:id', name: 'Delete', component: ''),
-    { path: '/login', name: 'Login', component: Login }
+    { path: '/login', 
+      name: 'Login', 
+      component: Login 
+    }
 ];
 
 // Router

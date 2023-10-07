@@ -2,19 +2,19 @@
     <form class="form" @submit.prevent="handleSubmit">
         <div class="input" >
             <label>Appointment Title</label>
-            <input v-model="appointment_title" type="text" placeholder="Physical" required />
+            <input v-model="appointment_title" type="text" placeholder="Physical" defaultValue="{post.appointment_title" required />
             <label>Doctor Name</label>
-            <input v-model="doctor_name" type="text" />
+            <input v-model="doctor_name" type="text" defaultValue="{post.doctor_name"/>
             <label>Doctor Specialist</label>
-            <input v-model="doctor_specialist" type="text" placeholder="Family Practitionor" />
+            <input v-model="doctor_specialist" type="text" defaultValue={post.doctor_specialist} />
             <label>Address</label>
-            <input v-model="address" type="text" />
+            <input v-model="address" type="text" defaultValue={post.address} />
             <label>Date</label>
-            <input v-model="date" type="date" required />
+            <input v-model="date" type="date" defaultValue={post.date} required />
             <label>Time</label>
-            <input v-model="time" type="time" required />
+            <input v-model="time" type="time" defaultValue={post.time} required />
             <label>Notes</label>
-            <input v-model="notes" type="text" placeholder="Notes" /> 
+            <input v-model="notes" type="text" defaultValue={post.notes} /> 
             <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
             <label class="priority">High Priority</label>
         </div> 
@@ -75,11 +75,11 @@
                 // window.location.href = 'http://localhost:5173/'
 
                 // error handling
-                if (response.ok) {
-                    this.addAppt();
-                }else {
-                    console.error('Error:', response.status, response.statusText)
-                }
+                // if (response.ok) {
+                //     this.addAppt();
+                // }else {
+                //     console.error('Error:', response.status, response.statusText)
+                // }
             },
             
             addAppt: function() {

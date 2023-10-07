@@ -1,11 +1,17 @@
 <template>
-    <div>
+    <h2>Show page</h2>
+    <p>The show id is for {{ id }}</p>
 
-    </div>
 </template>
 
 <script>
     export default {
+        name: "Show",
+        data() {
+            return {
+                id: this.$route.params.id
+            }
+        }
         
     }
 </script>
