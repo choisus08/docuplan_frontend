@@ -7,11 +7,16 @@
 <script>
     export default {
         name: "Show",
-        data() {
-            return {
-                id: this.$route.params.id
-            }
-        }
+        props: ['id'],
+
+
+
+        // use below if omit props: ['id']
+        // data() {
+        //     return {
+        //         id: this.$route.params.id
+        //     }
+        // }
         
     }
 </script>

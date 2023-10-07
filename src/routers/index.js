@@ -13,7 +13,8 @@ const routes = [
     
     { path: '/show/:id',
       name: 'Show',
-      component: Show
+      component: Show,
+      props: true
     },
 
     // ( path: 'update:id', name: 'Update', component: ''),

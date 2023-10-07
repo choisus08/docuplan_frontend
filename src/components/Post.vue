@@ -1,7 +1,7 @@
 <template>
     <div v-for="appt in appointments" class="card" :key="appt.id" >
         <router-link :to="{ name: 'Show', params: { id: appt.id } }">
-            <h2>{{ appt.appointment_title }}</h2>
+            <h2 class="apptLink">{{ appt.appointment_title }}</h2>
         </router-link>
         <h3>{{ appt.date }}</h3>
         <h3>{{ appt.time }}</h3>
@@ -22,6 +22,16 @@
 </script>
 
 <style>
+.apptLink {
+    color: rgb(137, 34, 171);
+}
 
+.card {
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    margin: 10px auto;
+    color: rgb(134, 131, 131);
+}
 
 </style>
