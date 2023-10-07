@@ -26,6 +26,7 @@
 <script>
     import {ref} from 'vue'
     import url from '../url'
+    
 
     const newApptHighPriority = ref(false)
 
@@ -40,20 +41,11 @@
             date: '',
             time: '',
             notes: '',
-            appointments: ref([]),
-            newAppt: '',
             newApptHighPriority: false
         
             }
         },
-        // created() {
-        //     this.fetchData() 
-        // },
-
-        // watch: {
-        //     appointments: 'fetchData'
-        // },
-
+        props: ['fetchAppts'],
         methods: {
             handleSubmit: async function(event) {
                 // console.log(this)
@@ -76,13 +68,19 @@
                         },
                         body: JSON.stringify(newAppt)
                 })
+
+                // refetch list in db
+                this.fetchAppts()
+
+                // vanilla js
+                // window.location.href = 'http://localhost:5173/'
+
                 // error handling
                 if (response.ok) {
                     this.addAppt();
                 }else {
                     console.error('Error:', response.status, response.statusText)
                 }
-            // console.log(response)
             },
             
             addAppt: function() {
@@ -92,8 +90,6 @@
 
          }
     }
-    
-        
     
 </script>
 

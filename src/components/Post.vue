@@ -1,5 +1,5 @@
 <template>
-    <div v-for="appt in appts" class="card" :key="appt.id">
+    <div v-for="appt in appointments" class="card" :key="appt.id" >
         <h2>{{appt.appointment_title}}</h2>
         <h3>{{appt.date}}</h3>
         <h3>{{appt.time}}</h3>
@@ -8,36 +8,13 @@
 </template>
 
 <script>
-    import { ref, onMounted } from 'vue'
-    import url from '../url'
-
 
     export default {
         name: "Post",
-        props: ['post'],
-
-        setup() {
-
-            const appts = ref([]);
-
-            onMounted(() => { 
-                // GET appts
-                // console.log('test onMounted')
-                fetch(url)
-                .then((response) => response.json())
-                .then(data => {
-                    console.log(data)
-                    appts.value = data
-                    // console.log(appts.value)
-                })
-                .catch(error => {
-                    alert('There is an error')
-                })
-            })
-
-            return { 
-                appts
-            }
+        props: ['fetchAppts', 'appointments'],
+        mounted() {
+            // console.log('onmount here')
+            this.fetchAppts()
         }
     }
 </script>
