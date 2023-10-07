@@ -26,7 +26,6 @@
 <script>
     import {ref} from 'vue'
     import url from '../url'
-    
 
     const newApptHighPriority = ref(false)
 
