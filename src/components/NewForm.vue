@@ -5,14 +5,14 @@
             <input v-model="appointment_title" type="text" placeholder="Physical" required />
             <label>Doctor Name</label>
             <input v-model="doctor_name" type="text" />
-            <label>Doctor Specialist</label>
+            <label>Specialist</label>
             <input v-model="doctor_specialist" type="text" />
-            <label>Address</label>
-            <input v-model="address" type="text" />
             <label>Date</label>
             <input v-model="date" type="date" required />
             <label>Time</label>
             <input v-model="time" type="time" required />
+            <label>Address</label>
+            <input v-model="address" type="text" />
             <label>Notes</label>
             <input v-model="notes" type="text" /> 
             <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 

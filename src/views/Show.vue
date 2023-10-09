@@ -2,7 +2,15 @@
     <button @click="redirect">Home</button>
     <h2>Show page</h2>
     <p>The show id is for {{ id }}</p>
-    <!-- <h3>{{ updatedAppt.doctor_name }}</h3>
+    <h2>Appointment Type:</h2>
+    <h2>Doctor:</h2>
+    <h2>Specialist:</h2>
+    <h2>Date:</h2>
+    <h2>Time:</h2>
+    <h2>Doctor:</h2>
+    <h2>Address:</h2>
+
+    <!-- <h3>{{ appointment.doctor_name }}</h3>
     <h3>{{ appt.doctor_specialist }}</h3>
     <h3>{{ appt.date }}</h3>
     <h3>{{ appt.time }}</h3>
@@ -18,14 +26,14 @@
             <input v-model="appointment_title" type="text" placeholder="Physical" required />
             <label>Doctor Name</label>
             <input v-model="doctor_name" type="text" />
-            <label>Doctor Specialist</label>
+            <label>Specialist</label>
             <input v-model="doctor_specialist" type="text" />
-            <label>Address</label>
-            <input v-model="address" type="text" />
             <label>Date</label>
             <input v-model="date" type="date" required />
             <label>Time</label>
             <input v-model="time" type="time" required />
+            <label>Address</label>
+            <input v-model="address" type="text" />
             <label>Notes</label>
             <input v-model="notes" type="text" /> 
             <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
@@ -46,7 +54,7 @@
 
     export default {
         name: "Show",
-        props: ['id'],
+        props: ['id', 'fetchAppts'],
         data() {
             return {
                 appointment_title: '',
