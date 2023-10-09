@@ -2,19 +2,19 @@
     <form class="form" @submit.prevent="handleSubmit">
         <div class="input" >
             <label>Appointment Title</label>
-            <input v-model="appointment_title" type="text" placeholder="Physical" defaultValue="{post.appointment_title" required />
+            <input v-model="appointment_title" type="text" placeholder="Physical" required />
             <label>Doctor Name</label>
-            <input v-model="doctor_name" type="text" defaultValue="{post.doctor_name"/>
+            <input v-model="doctor_name" type="text" />
             <label>Doctor Specialist</label>
-            <input v-model="doctor_specialist" type="text" defaultValue={post.doctor_specialist} />
+            <input v-model="doctor_specialist" type="text" />
             <label>Address</label>
-            <input v-model="address" type="text" defaultValue={post.address} />
+            <input v-model="address" type="text" />
             <label>Date</label>
-            <input v-model="date" type="date" defaultValue={post.date} required />
+            <input v-model="date" type="date" required />
             <label>Time</label>
-            <input v-model="time" type="time" defaultValue={post.time} required />
+            <input v-model="time" type="time" required />
             <label>Notes</label>
-            <input v-model="notes" type="text" defaultValue={post.notes} /> 
+            <input v-model="notes" type="text" /> 
             <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
             <label class="priority">High Priority</label>
         </div> 
