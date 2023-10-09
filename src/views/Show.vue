@@ -1,26 +1,15 @@
 <template>
     <button @click="redirect">Home</button>
     <h2>Show page</h2>
-    <p>The show id is for {{ id }}</p>
-    <h2>Appointment Type:</h2>
-    <h2>Doctor:</h2>
-    <h2>Specialist:</h2>
-    <h2>Date:</h2>
-    <h2>Time:</h2>
-    <h2>Doctor:</h2>
-    <h2>Address:</h2>
+    <h2>Appointment: {{ appointment.appointment_title }}</h2>
+    <h2>Doctor: {{ appointment.doctor_name}}</h2>
+    <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
+    <h2>Date:{{ appointment.date}}</h2>
+    <h2>Time: {{ appointment.time }}</h2>
+    <h2>Address: {{ appointment.address}}</h2>
+    <h2>Notes: {{appointment.notes }}</h2>
 
-    <!-- <h3>{{ appointment.doctor_name }}</h3>
-    <h3>{{ appt.doctor_specialist }}</h3>
-    <h3>{{ appt.date }}</h3>
-    <h3>{{ appt.time }}</h3>
-    <h3>{{ appt.address }}</h3>
-    <h3>{{ appt.notes }}</h3>
-    
- -->
-
-    <h2>Update Form</h2>
-    <form class="form">
+    <form class="form" @submit.prevent="updateAppt">
         <div class="input" >
             <label>Appointment Title</label>
             <input v-model="appointment_title" type="text" placeholder="Physical" required />
@@ -41,14 +30,13 @@
         </div> 
     </form>
 
-    <button @click="updateAppt">Update</button>
+    <button type="submit">Update</button>
     <button>Delete</button>
 </template>
 
 <script>
     import url from '../url'
     import {ref} from 'vue'
-
 
     const newApptHighPriority = ref(false)
 
@@ -57,6 +45,7 @@
         props: ['id', 'fetchAppts'],
         data() {
             return {
+                appointment: {}, // initialize empty object for appt data
                 appointment_title: '',
                 doctor_name: '',
                 doctor_specialist: '',
@@ -67,7 +56,66 @@
                 newApptHighPriority: false
              }
         },
+        async mounted() {
+            await this.fetchApptData()
+        },
         methods: {
+            async fetchApptData() {
+                try {
+                    const baseUrl = `${url}`
+                    const id = this.id
+                    const response = await fetch(baseUrl + id)
+                    const data = await response.json()
+                    this.appointment = data //populate appointment data
+
+                    // initialize form fields w/ appointment data
+                    this.appointment_title = data.appointment_title
+                    this.doctor_name = data.doctor_name
+                    this.doctor_specialist = data.doctor_specialist
+                    this.address = data.address
+                    this.date = data.date
+                    this.time = data.time
+                    this.notes = data.notes
+                    this.newApptHighPriority = data.newApptHighPriority
+                }catch (error) {
+                    console.error('Error fetching appointment data:', error)
+                }
+            },
+
+            async updateAppt() {
+                try {
+                    const baseUrl = `${url}`
+                    const id = this.id
+                    const updatedAppt = {
+                        appointment_title: this.appointment_title,
+                        doctor_name: this.doctor_name,
+                        doctor_specialist: this.doctor_specialist,
+                        address: this.address,
+                        date: this.date,
+                        time: this.time,
+                        notes: this.notes,
+                        newApptHighPriority: this.newApptHighPriority,
+                    }
+                
+                    const response = await fetch(url + id, {
+                        method: "PUT",
+                        headers: {
+                            "Content-type": "application/json"
+                        },
+                        body: JSON.stringify(updatedAppt)
+                    })
+
+                    if (response.ok) {
+                        console.log('Appointment updated successfully')
+                        await this.fetchAppts()
+                    } else { 
+                    console.error('Failed to update appointment')
+                    }
+                } catch(error) {
+                    console.error('Error updating appointment:', error)
+                    }
+                
+            },
             
             // update appointment
             // async updateAppt() {
