@@ -1,7 +1,7 @@
 <template>
-    <h1>Appointments</h1>
     <NewForm :fetchAppts="fetchAppts" />
-    <div>
+    <h2> My Appointments</h2>
+    <div class="cardGrid">
       <Post :fetchAppts="fetchAppts" :appointments="appointments"/>
     </div>
 </template>
@@ -46,5 +46,9 @@
 </script>
 
 <style>
+.cardGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
 
 </style>

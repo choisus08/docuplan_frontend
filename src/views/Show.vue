@@ -9,7 +9,7 @@
     <h2>Address: {{ appointment.address}}</h2>
     <h2>Notes: {{appointment.notes }}</h2>
 
-    <form class="form" @submit.prevent="updateAppt">
+    <form @submit.prevent="updateAppt">
         <div class="input" >
             <label>Appointment Title</label>
             <input v-model="appointment_title" type="text" placeholder="Physical" required />
@@ -25,20 +25,21 @@
             <input v-model="address" type="text" />
             <label>Notes</label>
             <input v-model="notes" type="text" /> 
-            <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
+            <input class="checkbox" type="checkbox" v-model="apptPriority"/> 
             <label class="priority">High Priority</label>
         </div> 
-        <button class="updateBtn" type="submit">Update</button>
+        <div class="buttons">
+            <button class="updateBtn" type="submit">Update</button>
+            <button class="deleteBtn" @click="deleteAppt">Delete</button>
+        </div>
     </form>
-
-    <button>Delete</button>
 </template>
 
 <script>
     import url from '../url'
     import {ref} from 'vue'
 
-    const newApptHighPriority = ref(false)
+    const apptPriority = ref(false)
 
     export default {
         name: "Show",
@@ -53,13 +54,14 @@
                 date: '',
                 time: '',
                 notes: '',
-                newApptHighPriority: false
+                apptPriority: false
              }
         },
         async mounted() {
             await this.fetchApptData()
         },
         methods: {
+            // get appointment data
             async fetchApptData() {
                 try {
                     const baseUrl = `${url}`
@@ -118,30 +120,24 @@
                 
             },
             
-            // update appointment
-            // async updateAppt() {
-                
-            //     const updatedAppt = {
-            //         appointment_title: this.appointment_title,
-            //         doctor_name: this.doctor_name,
-            //         doctor_specialist: this.doctor_specialist,
-            //         address: this.address,
-            //         date: this.date,
-            //         time: this.time,
-            //         notes: this.notes, 
-            //     } 
-            //     const baseUrl = `${url}`
-            //     const id = this.$route.params.id
-            //     const response = await fetch(baseUrl + id, {
-            //         method: "PUT",
-            //         headers: {
-            //             "Content-Type": "applications/json"
-            //         },
-            //         body: JSON.stringify(updatedAppt)
-            //     })
-            //     const data = await response.json()
-            //     this.updatedAppt = data.updatedAppt
-            // },
+            async deleteAppt() {
+                try {
+                    const baseUrl = `${url}`
+                    const id = this.id
+                    const response = await fetch(baseUrl + id, {
+                        method: "DELETE"
+                    }) 
+                if (response.ok) {
+                    console.log('Appointment deleted')
+                    // redirect back to index(homepage) 
+                    this.$router.push({ name: 'Index'}) 
+                } else {
+                    console.error('Failed to delete appointment')
+                 }
+                } catch (error) {
+                    console.error('Error deleting appointment:', error)
+                 }            
+            },
 
             // redirect route back to index page (homepage) for home btn
             redirect() {
@@ -168,7 +164,8 @@ form {
     text-align: left;
     padding: 40px;
     border-radius: 10px;
-    color: rgb(187, 185, 185)
+    color: rgb(187, 185, 185);
+
 }
 
 label {
@@ -197,6 +194,13 @@ input {
     width: 1em;
     display: inline;
     
+}
+
+.buttons {
+    display: flex;
+    gap: 1em;
+    justify-content: center;
+    margin: 1.5em 0 0 0 
 }
 
 </style>

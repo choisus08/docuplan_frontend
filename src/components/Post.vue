@@ -32,6 +32,7 @@
     border-radius: 10px;
     margin: 10px auto;
     color: rgb(134, 131, 131);
+    width: 10em;
 }
 
 </style>
