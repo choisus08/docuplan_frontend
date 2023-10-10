@@ -4,7 +4,7 @@
     <h2>Appointment: {{ appointment.appointment_title }}</h2>
     <h2>Doctor: {{ appointment.doctor_name}}</h2>
     <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
-    <h2>Date:{{ appointment.date}}</h2>
+    <h2>Date: {{ appointment.date}}</h2>
     <h2>Time: {{ appointment.time }}</h2>
     <h2>Address: {{ appointment.address}}</h2>
     <h2>Notes: {{appointment.notes }}</h2>
@@ -28,9 +28,9 @@
             <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
             <label class="priority">High Priority</label>
         </div> 
+        <button class="updateBtn" type="submit">Update</button>
     </form>
 
-    <button type="submit">Update</button>
     <button>Delete</button>
 </template>
 
@@ -106,8 +106,9 @@
                     })
 
                     if (response.ok) {
+                        // fetch the updated appointment data & update the 'appointment' data property
+                        await this.fetchApptData();
                         console.log('Appointment updated successfully')
-                        await this.fetchAppts()
                     } else { 
                     console.error('Failed to update appointment')
                     }
