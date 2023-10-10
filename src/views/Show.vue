@@ -1,13 +1,15 @@
 <template>
-    <button @click="redirect">Home</button>
-    <h2>Show page</h2>
-    <h2>Appointment: {{ appointment.appointment_title }}</h2>
-    <h2>Doctor: {{ appointment.doctor_name}}</h2>
-    <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
-    <h2>Date: {{ appointment.date}}</h2>
-    <h2>Time: {{ appointment.time }}</h2>
-    <h2>Address: {{ appointment.address}}</h2>
-    <h2>Notes: {{appointment.notes }}</h2>
+    <!-- <button @click="redirect">Home</button> -->
+<container class="showContainer">
+    <div class="apptDetails">
+        <h2>Appointment: {{ appointment.appointment_title }}</h2>
+        <h2>Doctor: {{ appointment.doctor_name}}</h2>
+        <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
+        <h2>Date: {{ appointment.date}}</h2>
+        <h2>Time: {{ appointment.time }}</h2>
+        <h2>Address: {{ appointment.address}}</h2>
+        <h2>Notes: {{appointment.notes }}</h2>
+    </div>
 
     <form @submit.prevent="updateAppt">
         <div class="input" >
@@ -29,10 +31,11 @@
             <label class="priority">High Priority</label>
         </div> 
         <div class="buttons">
-            <button class="updateBtn" type="submit">Update</button>
+            <button class="updateBtn">Update</button>
             <button class="deleteBtn" @click="deleteAppt">Delete</button>
         </div>
     </form>
+</container>
 </template>
 
 <script>
@@ -139,7 +142,7 @@
                  }            
             },
 
-            // redirect route back to index page (homepage) for home btn
+            // redirect route back to index page (homepage); use for home btn
             redirect() {
                 this.$router.push({ name: 'Index'})
             },
@@ -157,6 +160,23 @@
 </script>
 
 <style scoped>
+.showContainer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 5em 0 0 0;
+    gap: 5em;
+}
+
+.apptDetails {
+    border: 1px solid white;
+    border-radius: 10px;
+    padding: 1.5em;
+    height: 30em;
+    text-align: left;
+    margin: 3em 0 0 0;
+}
+
 form {
     width: 400px;
     margin: 3em auto;
@@ -165,6 +185,7 @@ form {
     padding: 40px;
     border-radius: 10px;
     color: rgb(187, 185, 185);
+    margin: 0
 
 }
 
@@ -200,7 +221,11 @@ input {
     display: flex;
     gap: 1em;
     justify-content: center;
-    margin: 1.5em 0 0 0 
+    margin: 1.5em 0 0 0;
+}
+
+.updateBtn, .deleteBtn {
+    background-color: #646cff;
 }
 
 </style>

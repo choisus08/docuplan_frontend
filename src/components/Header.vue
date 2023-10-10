@@ -1,6 +1,6 @@
 <template>
    <nav class="navbar">
-        <router-link :to="{name: 'Index'}">Home</router-link>
+        <router-link :to="{name: 'Index'}" class="headerLink"><h1 class="header">Doc UPlan</h1></router-link>
 
    </nav>
 </template>
@@ -12,5 +12,9 @@
 </script>
 
 <style scoped>
+.headerLink {
+    color: white;
+}
+
 
 </style>

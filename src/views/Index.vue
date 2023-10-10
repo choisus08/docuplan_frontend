@@ -7,7 +7,6 @@
 </template>
 
 <script>
-
     import Post from '../components/Post.vue'
     import NewForm from '../components/NewForm.vue'
     import Show from '../views/Show.vue'
