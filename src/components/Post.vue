@@ -33,6 +33,7 @@
     margin: 10px auto;
     color: rgb(134, 131, 131);
     width: 10em;
+    box-shadow: 6px 6px 5px rgb(83, 82, 82);
 }
 
 </style>

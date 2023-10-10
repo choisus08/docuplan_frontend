@@ -1,6 +1,6 @@
 <template>
     <NewForm :fetchAppts="fetchAppts" />
-    <h2> My Appointments</h2>
+    <h2>MY APPOINTMENTS</h2>
     <div class="cardGrid">
       <Post :fetchAppts="fetchAppts" :appointments="appointments"/>
     </div>

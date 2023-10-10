@@ -172,9 +172,13 @@
     border: 1px solid white;
     border-radius: 10px;
     padding: 1.5em;
-    height: 30em;
+    height: auto;
+    width: 350px;
     text-align: left;
     margin: 3em 0 0 0;
+    color: rgb(134, 131, 131);
+    background-color: white;
+    box-shadow: 6px 6px 5px rgb(83, 82, 82);
 }
 
 form {
