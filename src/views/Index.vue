@@ -39,8 +39,9 @@
                 .catch(error => {
                 alert('There is an error')
             })
-        }}
         }
+    }
+}
 
 </script>
 

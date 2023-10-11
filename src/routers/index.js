@@ -14,7 +14,7 @@ const routes = [
     { path: '/show/:id',
       name: 'Show',
       component: Show,
-      props: true
+      props: true // pass the 'id' parameter as a prop
     },
 
     // ( path: 'update:id', name: 'Update', component: ''),

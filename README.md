@@ -50,3 +50,4 @@ Mobile View <br>
 ## Resources 
 - https://developer.mozilla.org/en-US/
 - https://vuejs.org/guide/introduction.html
+- https://www.w3schools.com/

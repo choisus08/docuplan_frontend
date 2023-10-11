@@ -72,6 +72,10 @@
                      // refetch list in db
                     this.fetchAppts()
                     this.clearForm()
+
+                    // Emit (method in vue) an event with the new appointment data
+                    // this will pass information from child component to parent component
+                    // this.$emit('new-appointment', newAppt)
                 }
 
                 // vanilla js
