@@ -1,6 +1,6 @@
 <template>
     <!-- <button @click="redirect">Home</button> -->
-<container class="showContainer">
+<div class="showContainer">
     <div class="apptDetails">
         <h2>Appointment: {{ appointment.appointment_title }}</h2>
         <h2>Doctor: {{ appointment.doctor_name}}</h2>
@@ -35,7 +35,7 @@
             <button class="deleteBtn" @click="deleteAppt">Delete</button>
         </div>
     </form>
-</container>
+</div>
 </template>
 
 <script>
@@ -102,7 +102,7 @@
                         newApptHighPriority: this.newApptHighPriority,
                     }
                 
-                    const response = await fetch(url + id, {
+                    const response = await fetch(baseUrl + id, {
                         method: "PUT",
                         headers: {
                             "Content-type": "application/json"
@@ -112,7 +112,7 @@
 
                     if (response.ok) {
                         // fetch the updated appointment data & update the 'appointment' data property
-                        await this.fetchApptData();
+                        await this.fetchApptData()
                         console.log('Appointment updated successfully')
                     } else { 
                     console.error('Failed to update appointment')
@@ -164,7 +164,7 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    margin: 5em 0 0 0;
+    margin: 2em 0 0 0;
     gap: 5em;
 }
 

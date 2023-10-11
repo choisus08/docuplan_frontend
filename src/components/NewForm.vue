@@ -44,7 +44,7 @@
         
             }
         },
-        props: ['fetchAppts'],
+        props: ['fetchAppts', 'appointments'],
         methods: {
             handleSubmit: async function(event) {
                 // console.log(this)
@@ -68,23 +68,32 @@
                         body: JSON.stringify(newAppt)
                 })
 
-                // refetch list in db
-                this.fetchAppts()
+                if (response.ok) {
+                     // refetch list in db
+                    this.fetchAppts()
+                    this.clearForm()
+                }
 
                 // vanilla js
                 // window.location.href = 'http://localhost:5173/'
 
-                // error handling
-                // if (response.ok) {
-                //     this.addAppt();
-                // }else {
-                //     console.error('Error:', response.status, response.statusText)
-                // }
             },
             
-            addAppt: function() {
-                this.appointments.push(this.newAppt)
+            // addAppt: function() {
+            //     // add to beginning of list
+            //     this.appointments.push(this.newAppt)
                
+            // },
+
+            clearForm: function() {
+                this.appointment_title = '';
+                this.doctor_name = '';
+                this.doctor_specialist = '';
+                this.address = '';
+                this.date = '';
+                this.time = '';
+                this.notes = '';
+                this.newApptHighPriority = false;
             }
 
          }
@@ -95,7 +104,7 @@
 <style scoped>
 form {
     width: 400px;
-    margin: 3em auto;
+    margin: 2em auto;
     background-color: white;
     text-align: left;
     padding: 40px;
