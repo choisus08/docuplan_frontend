@@ -78,12 +78,6 @@
                 // window.location.href = 'http://localhost:5173/'
 
             },
-            
-            // addAppt: function() {
-            //     // add to beginning of list
-            //     this.appointments.push(this.newAppt)
-               
-            // },
 
             clearForm: function() {
                 this.appointment_title = '';
