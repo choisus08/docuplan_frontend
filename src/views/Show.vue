@@ -232,4 +232,26 @@ input {
     background-color: #646cff;
 }
 
+@media screen and (max-width: 600px) {
+
+.showContainer {
+    display: block;
+    align-items: center;
+    margin: auto;
+    }
+.apptDetails {
+    width: 50vw;
+    margin: 0 0 3em 2.5em;
+    text-align: center;
+    box-shadow: none;
+
+}
+    
+form {
+    height: auto;
+    width: 50vw;
+    margin: auto
+}
+}
+
 </style>
