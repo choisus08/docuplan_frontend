@@ -1,5 +1,4 @@
 <template>
-    <!-- <button @click="redirect">Home</button> -->
 <div class="showContainer">
     <div class="apptDetails">
         <h2>Appointment: {{ appointment.appointment_title }}</h2>
@@ -241,7 +240,7 @@ input {
     }
 .apptDetails {
     width: 50vw;
-    margin: 0 0 3em 2.5em;
+    margin: auto;
     text-align: center;
     box-shadow: none;
 
@@ -250,8 +249,9 @@ input {
 form {
     height: auto;
     width: 50vw;
-    margin: auto
+    margin: 2em auto
 }
+
 }
 
 </style>

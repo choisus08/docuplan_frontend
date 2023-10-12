@@ -26,4 +26,12 @@
     height: 85px
 }
 
+@media screen and (max-width: 600px) {
+    .header{
+        width: 100px;
+        font-size: 40px;
+    }
+
+}
+
 </style>
