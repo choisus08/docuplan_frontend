@@ -5,7 +5,7 @@
         <h2>Doctor: {{ appointment.doctor_name}}</h2>
         <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
         <h2>Date: {{ appointment.date}}</h2>
-        <h2>Time: {{ appointment.time }}</h2>
+        <h2>Time: {{ formattedTime }}</h2>
         <h2>Address: {{ appointment.address}}</h2>
         <h2>Notes: {{appointment.notes }}</h2>
     </div>
@@ -58,6 +58,17 @@
                 notes: '',
                 apptPriority: false
              }
+        },
+        // computed property -> used for defining derived data based on other properties ('formattedTime' derived by 'time' property). 
+        // will change DOM live
+        computed: {
+            formattedTime() {
+                if (!this.time) return '' // Handle empty time
+                const [hours, minutes] = this.time.split(':').map(Number) // converts hours & mins subtrings into numbers
+                const amPm = hours >= 12 ? 'PM' : 'AM' // ternary if hour >=12 then 'pm', else 'am'
+                const convertTo12Hr = hours % 12 === 0 ? '12' : (hours % 12).toString() // check to calculate to 12-hr format; if not then convert to string
+                return `${convertTo12Hr}:${minutes.toString().padStart(2, '0')} ${amPm}` // format resulting time string; padStart() used to ensure minutes is at least 2 digits long, adding a leading 0 when needed.
+            }
         },
         async mounted() {
             await this.fetchApptData()
