@@ -1,6 +1,9 @@
 <template>
    <nav class="navbar">
-        <router-link :to="{name: 'Index'}" class="headerLink"><h1 class="header">Doc UPlan</h1><img class="stethoscope" src="../../public/stethoscope.png" alt="stethoscope" />
+        <router-link :to="{name: 'Index'}" class="headerLink">
+            <img class="logo" src="../../public/logo1.png" alt="logo" /> 
+            <h1 class="header">Doc UPlan</h1>
+
         </router-link>
 
    </nav>
@@ -19,11 +22,13 @@
     justify-content: center;
     align-items: center;
     gap: .5em
+
 }
 
-.stethoscope {
-    width: 85px;
-    height: 85px
+.logo {
+    width: 80px;
+    height: 80px;
+    padding: 0 1em 0 0 
 }
 
 @media screen and (max-width: 600px) {

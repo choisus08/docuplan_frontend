@@ -1,6 +1,7 @@
 <template>
     <NewForm :fetchAppts="fetchAppts" />
-    <h2>MY APPOINTMENTS</h2>
+    <div class="divider"></div>
+    <h2 class="myappts">MY APPOINTMENTS</h2>
     <div class="cardGrid">
       <Post :fetchAppts="fetchAppts" :appointments="appointments"/>
     </div>
@@ -25,6 +26,16 @@
                 appointments: [],
             }
         },
+        // computed: {
+        //     formattedAppts() {
+        //         return this.appointments.map(appointment => ({
+        //             // spread operator to copy all properties of 'appointment' object
+        //             ...appointment,
+        //             // modify 'time' property
+        //             time: this.formatTime(appointment.time),
+        //         }))
+        //     }
+        // },
         methods: {
             fetchAppts() {
             // GET appts
@@ -33,13 +44,21 @@
                 .then((response) => response.json())
                 .then(data => {
                 // console.log(data)
-                this.appointments = data
+                this.appointments = data 
                 // console.log(appts.value)
                 })
                 .catch(error => {
                 alert('There is an error')
             })
-        }
+        },
+        // formatTime(time) {
+        //     // format to am/pm
+        //     if(!time) return '' // handle empty time
+        //     const [hours, minutes] = time.split(':').map(Number)
+        //     const amPm = hours >= 12 ? 'pm' : 'am'
+        //     const convertTo12Hr = hours % 12 === 0 ? '12' : (hours % 12).toString()
+        //     return `${convertTo12Hr}:${minutes.toString().padStart(2, '0')} ${amPm}`
+        // }
     }
 }
 
@@ -49,6 +68,16 @@
 .cardGrid {
         display: grid;
         grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+}
+
+.myappts {
+    color: white;
+    margin: 0 0 2em 0
+
+}
+.divider {
+    border-top: 2px solid darkgray;
+    margin: 4em 0
 }
 
 </style>
