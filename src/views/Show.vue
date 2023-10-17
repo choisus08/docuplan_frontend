@@ -26,8 +26,8 @@
             <input v-model="address" type="text" />
             <label>Notes</label>
             <input v-model="notes" type="text" /> 
-            <input class="checkbox" type="checkbox" v-model="apptPriority"/> 
-            <label class="priority">High Priority</label>
+            <!-- <input class="checkbox" type="checkbox" v-model="apptPriority"/>  -->
+            <!-- <label class="priority">High Priority</label> -->
         </div> 
         <div class="buttons">
             <button class="updateBtn">Update</button>
@@ -39,9 +39,9 @@
 
 <script>
     import url from '../url'
-    import {ref} from 'vue'
+    // import {ref} from 'vue'
 
-    const apptPriority = ref(false)
+    // const apptPriority = ref(false)
 
     export default {
         name: "Show",
@@ -56,7 +56,7 @@
                 date: '',
                 time: '',
                 notes: '',
-                apptPriority: false
+                // apptPriority: false
              }
         },
         // computed property -> used for defining derived data based on other properties ('formattedTime' derived by 'time' property). 
@@ -91,7 +91,7 @@
                     this.date = data.date
                     this.time = data.time
                     this.notes = data.notes
-                    this.newApptHighPriority = data.newApptHighPriority
+                    // this.newApptHighPriority = data.newApptHighPriority
                 }catch (error) {
                     console.error('Error fetching appointment data:', error)
                 }
@@ -109,7 +109,7 @@
                         date: this.date,
                         time: this.time,
                         notes: this.notes,
-                        newApptHighPriority: this.newApptHighPriority,
+                        // newApptHighPriority: this.newApptHighPriority,
                     }
                 
                     const response = await fetch(baseUrl + id, {

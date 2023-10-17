@@ -15,8 +15,8 @@
             <input v-model="address" type="text" />
             <label>Notes</label>
             <input v-model="notes" type="text" /> 
-            <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
-            <label class="priority">High Priority</label>
+            <!-- <input class="checkbox" type="checkbox" v-model="newApptHighPriority"/> 
+            <label class="priority">High Priority</label> -->
         </div> 
                
             <button class="addBtn">+</button>
@@ -24,10 +24,10 @@
 </template>
 
 <script>
-    import {ref} from 'vue'
+    // import {ref} from 'vue'
     import url from '../url'
 
-    const newApptHighPriority = ref(false)
+    // const newApptHighPriority = ref(false)
 
     export default {
         name: "NewForm",
@@ -40,7 +40,7 @@
             date: '',
             time: '',
             notes: '',
-            newApptHighPriority: false
+            // newApptHighPriority: false
         
             }
         },
@@ -140,7 +140,7 @@ input {
 
 button {
     display: block;
-    margin: auto;
+    margin: 2em auto 0;
     background-color:  #646cff
 }
 
