@@ -19,7 +19,7 @@
             <label class="priority">High Priority</label> -->
         </div> 
                
-            <button class="addBtn">+</button>
+            <button class="addBtn"><img class='heart' src="../../public/heart.png" /></button>
     </form>
 </template>
 
@@ -142,6 +142,11 @@ button {
     display: block;
     margin: 2em auto 0;
     background-color:  #646cff
+}
+
+.heart {
+    width: 30px;
+    height: 30px
 }
 
 </style>
