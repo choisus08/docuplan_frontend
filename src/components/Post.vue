@@ -3,9 +3,11 @@
         <router-link :to="{ name: 'Show', params: { id: appt.id } }">
             <h2 class="apptLink">{{ appt.appointment_title }}</h2>
         </router-link>
+        <div class="cardInfo">
         <h3>{{ appt.date }}</h3>
         <h3>{{ appt.time }}</h3>
         <h3>{{ appt.doctor_name }}</h3>
+        </div>
     </div>
 </template>
 
@@ -42,17 +44,29 @@
 
 <style>
 .apptLink {
-    color: rgb(137, 34, 171);
+    margin: 1.4em 0 3.2em 0;
+    color: rgb(5, 119, 161);
+    font-size: 22px;
 }
 
 .card {
-    background-color: white;
-    padding: 20px;
-    border-radius: 10px;
-    margin: 10px auto;
-    color: rgb(134, 131, 131);
+    margin: 18px auto;
+    color: rgb(103, 64, 135);
     width: 10em;
-    box-shadow: 6px 6px 5px rgb(83, 82, 82);
+    height: 16em;
+    background-image: url('../../public/clipboard2.png');
+    background-size: 300px 320px;
+    background-position: center;
+    
 }
+
+h3 {
+    margin: .4em
+}
+
+.cardInfo {
+    font-size: 15px;
+}
+
 
 </style>

@@ -19,7 +19,7 @@
             <label class="priority">High Priority</label> -->
         </div> 
                
-            <button class="addBtn"><img class='heart' src="../../public/heart.png" /></button>
+            <button class="addBtn"></button>
     </form>
 </template>
 
@@ -72,10 +72,6 @@
                      // refetch list in db
                     this.fetchAppts()
                     this.clearForm()
-
-                    // Emit (method in vue) an event with the new appointment data
-                    // this will pass information from child component to parent component
-                    // this.$emit('new-appointment', newAppt)
                 }
 
                 // vanilla js
@@ -138,15 +134,18 @@ input {
     
 }
 
-button {
+.addBtn {
     display: block;
     margin: 2em auto 0;
-    background-color:  #646cff
-}
+    background-color:  white;
+    background-image: url('../../public/file2.png');
+    background-size: cover;
+    background-repeat: none;
+    background-position: center;
+    width: 60px;
+    height: 60px;
+    border: none
 
-.heart {
-    width: 30px;
-    height: 30px
 }
 
 </style>

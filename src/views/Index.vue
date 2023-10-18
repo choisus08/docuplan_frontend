@@ -60,7 +60,7 @@
 }
 .divider {
     border-top: 2px solid darkgray;
-    margin: 4em 0
+    margin: 4em 4em
 }
 
 </style>

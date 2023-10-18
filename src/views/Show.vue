@@ -239,7 +239,7 @@ input {
 }
 
 .updateBtn, .deleteBtn {
-    background-color: #646cff;
+    background-color: #55c7e6;
 }
 
 @media screen and (max-width: 600px) {
