@@ -78,7 +78,6 @@
                 // window.location.href = 'http://localhost:5173/'
 
             },
-
             clearForm: function() {
                 this.appointment_title = '';
                 this.doctor_name = '';
@@ -103,7 +102,7 @@ form {
     text-align: left;
     padding: 40px;
     border-radius: 10px;
-    color: rgb(187, 185, 185)
+    color: rgb(187, 185, 185);
 }
 
 label {
@@ -112,7 +111,6 @@ label {
     font-size: .8em;
     text-transform: uppercase;
     font-weight: bold;
-    
 }
 
 input {
@@ -124,14 +122,12 @@ input {
     border-radius: 10px;
     border-bottom: 1px solid #ddd;
     background-color: gray;
-    
 }
 
 .checkbox {
     margin: 2em 1em 0 0;
     width: 1em;
-    display: inline;
-    
+    display: inline; 
 }
 
 .addBtn {
@@ -144,8 +140,7 @@ input {
     background-position: center;
     width: 60px;
     height: 60px;
-    border: none
-
+    border: none;
 }
 
 </style>

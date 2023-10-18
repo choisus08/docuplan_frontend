@@ -26,7 +26,6 @@
                 appointments: [],
             }
         },
-        
         methods: {
             fetchAppts() {
             // GET appts

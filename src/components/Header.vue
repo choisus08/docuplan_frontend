@@ -3,9 +3,7 @@
         <router-link :to="{name: 'Index'}" class="headerLink">
             <img class="logo" src="../../public/logo1.png" alt="logo" /> 
             <h1 class="header">Doc UPlan</h1>
-
         </router-link>
-
    </nav>
 </template>
 
@@ -21,14 +19,13 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    gap: .5em
-
+    gap: .5em;
 }
 
 .logo {
     width: 80px;
     height: 80px;
-    padding: 0 1em 0 0 
+    padding: 0 1em 0 0; 
 }
 
 @media screen and (max-width: 600px) {

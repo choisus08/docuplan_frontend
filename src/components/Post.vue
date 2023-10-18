@@ -30,7 +30,7 @@
             formatTime(time) {
                 if (!time) return '' // Handle empty time
                 const [hours, minutes] = time.split(':').map(Number) // converts hours & mins subtrings into numbers
-                const amPm = hours >= 12 ? 'pm' : 'am' // ternary if hour >=12 then 'pm', else 'am'
+                const amPm = hours >= 12 ? 'PM' : 'AM' // ternary if hour >=12 then 'pm', else 'am'
                 const convertTo12Hr = hours % 12 === 0 ? '12' : (hours % 12).toString()
                 return `${convertTo12Hr}:${minutes.toString().padStart(2, '0')} ${amPm}`
             }
@@ -57,11 +57,10 @@
     background-image: url('../../public/clipboard2.png');
     background-size: 300px 320px;
     background-position: center;
-    
 }
 
 h3 {
-    margin: .4em
+    margin: .4em;
 }
 
 .cardInfo {

@@ -152,10 +152,6 @@
                  }            
             },
 
-            // redirect route back to index page (homepage); use for home btn
-            redirect() {
-                this.$router.push({ name: 'Index'})
-            },
         }
 
 
@@ -193,12 +189,12 @@
 
 #info {
     color: rgb(134, 133, 133);
-    margin: 10px 0
+    margin: 10px 0;
 }
 
 #answer {
     margin: 0;
-    color: rgb(84, 138, 239)
+    color: rgb(5, 119, 161);
 }
 
 form {
@@ -209,8 +205,7 @@ form {
     padding: 40px;
     border-radius: 10px;
     color: rgb(187, 185, 185);
-    margin: 0
-
+    margin: 0;
 }
 
 label {
@@ -219,7 +214,6 @@ label {
     font-size: .8em;
     text-transform: uppercase;
     font-weight: bold;
-    
 }
 
 input {
@@ -231,9 +225,7 @@ input {
     border-radius: 10px;
     border-bottom: 1px solid #ddd;
     background-color: gray;
-    
 }
-
 
 .buttons {
     display: flex;
@@ -248,24 +240,23 @@ input {
 
 @media screen and (max-width: 600px) {
 
-.showContainer {
-    display: block;
-    align-items: center;
-    margin: auto;
+    .showContainer {
+        display: block;
+        align-items: center;
+        margin: auto;
+        }
+    .apptDetails {
+        width: 50vw;
+        margin: auto;
+        text-align: center;
+        box-shadow: none;
     }
-.apptDetails {
-    width: 50vw;
-    margin: auto;
-    text-align: center;
-    box-shadow: none;
-
-}
     
-form {
-    height: auto;
-    width: 50vw;
-    margin: 2em auto
-}
+    form {
+        height: auto;
+        width: 50vw;
+        margin: 2em auto
+    }   
 
 }
 
