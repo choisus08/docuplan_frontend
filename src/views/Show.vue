@@ -1,13 +1,13 @@
 <template>
 <div class="showContainer">
     <div class="apptDetails">
-        <h2>Appointment: {{ appointment.appointment_title }}</h2>
-        <h2>Doctor: {{ appointment.doctor_name}}</h2>
-        <h2>Specialist: {{ appointment.doctor_specialist}}</h2>
-        <h2>Date: {{ appointment.date}}</h2>
-        <h2>Time: {{ formattedTime }}</h2>
-        <h2>Address: {{ appointment.address}}</h2>
-        <h2>Notes: {{appointment.notes }}</h2>
+        <h3 id="info">Appointment:</h3> <h2 id="answer">{{ appointment.appointment_title }}</h2>
+        <h3 id="info">Doctor:</h3> <h2 id="answer">{{ appointment.doctor_name}}</h2>
+        <h3 id="info">Specialist:</h3> <h2 id="answer">{{ appointment.doctor_specialist}}</h2>
+        <h3 id="info">Date:</h3> <h2 id="answer">{{ appointment.date}}</h2>
+        <h3 id="info">Time:</h3> <h2 id="answer">{{ formattedTime }}</h2>
+        <h3 id="info">Address:</h3> <h2 id="answer">{{ appointment.address}}</h2>
+        <h3 id="info">Notes:</h3> <h2 id="answer">{{appointment.notes }}</h2>
     </div>
 
     <form @submit.prevent="updateAppt">
@@ -191,6 +191,16 @@
     box-shadow: 6px 6px 5px rgb(83, 82, 82);
 }
 
+#info {
+    color: rgb(134, 133, 133);
+    margin: 10px 0
+}
+
+#answer {
+    margin: 0;
+    color: rgb(84, 138, 239)
+}
+
 form {
     width: 400px;
     margin: 3em auto;
@@ -224,12 +234,6 @@ input {
     
 }
 
-.checkbox {
-    margin: 2em 1em 0 0;
-    width: 1em;
-    display: inline;
-    
-}
 
 .buttons {
     display: flex;

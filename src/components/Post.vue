@@ -50,8 +50,8 @@
 }
 
 .card {
-    margin: 18px auto;
-    color: rgb(103, 64, 135);
+    margin: 30px auto;
+    color: rgb(5, 119, 161);
     width: 10em;
     height: 16em;
     background-image: url('../../public/clipboard2.png');
