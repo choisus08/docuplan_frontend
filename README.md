@@ -2,11 +2,11 @@
 **Project By:** Susie Gordon
 
 ## Description
-Doc UPlan is a full CRUD app developed with Vue3 and Django that compiles all doctors appointments (family, dentist, optometrist, specialist, etc.) into a calendar to improve time management, organization, and lifestyle. Users can view a list of various appointments and the calendar month of choice displaying all past and future appointments. 
+Doc UPlan is a full CRUD application developed with Vue3 and Django that compiles all doctors appointments (family, dentist, optometrist, specialist, etc.) into a calendar to improve time management, organization, and lifestyle. Users can view a list of various appointments and the calendar month of choice displaying all past and future appointments. 
 
 ## Links
-- [**Github**](LINK)
-- [**Deployment**](https://github.com/choisus08/docuplan_frontend)
+- [**Github**](https://github.com/choisus08/docuplan_frontend)
+- [**Deployment**](https://glittery-puppy-11f963.netlify.app/)
 - [**Trello**](https://trello.com/b/v5jUhSlv/doc-uplan)
 </br>
 
@@ -25,7 +25,7 @@ My initial approach was to make a call to the backend by successfully implementi
 ## Installation
 - `Fork` and `clone` this respository
 - `cd` into the directory on your local machine
-- Open this repository in your code editor and run the code `npm run dev` to open the React app in your browser
+- Open this repository in your code editor and run the code `npm run dev` to open the app in your browser
 
 ## Mockup of UI <br>
 Desktop View </br>
@@ -40,8 +40,6 @@ Mobile View <br>
 ## Issues & Solutions
 1. Full CRUD functionality was successfull in backend but a new appointment would not render in frontend 
     - Solution: Manually change the queryset in views.py (backend) to order by id 
-2.
-3.
 
 ## Future Enhancements
 - Add authentication
